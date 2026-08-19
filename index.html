@@ -355,7 +355,7 @@ html[data-theme="dark"] .status-يحتاج-تعديل{background:rgba(179,84,63,
             <table class="students-table" id="students-table">
               <thead><tr>
                 <th style="width:30px;"><input type="checkbox" id="select-all"></th>
-                <th>الطالب</th><th>رقم التسجيل</th><th>الشعبة</th><th>المجموع</th><th>الكيمياء</th>
+                <th>الطالب</th><th>رقم التسجيل</th><th>الشعبة</th><th>المجموع</th><th>الكيمياء</th><th>الفيزياء</th>
                 <th>الكلية</th><th>الجامعة</th><th>الحالة</th><th>تاريخ التسجيل</th>
               </tr></thead>
               <tbody></tbody>
@@ -394,6 +394,7 @@ html[data-theme="dark"] .status-يحتاج-تعديل{background:rgba(179,84,63,
             <div class="mb-row"><span>الشعبة</span><b id="pm-section">—</b></div>
             <div class="mb-row"><span>المجموع</span><b id="pm-total">—</b></div>
             <div class="mb-row"><span>الكيمياء</span><b id="pm-chem">—</b></div>
+            <div class="mb-row"><span>الفيزياء</span><b id="pm-phys">—</b></div>
             <div class="mb-row"><span>الكلية</span><b id="pm-college">—</b></div>
             <div class="mb-row"><span>الجامعة</span><b id="pm-university">—</b></div>
             <div class="mb-row"><span>المحافظة</span><b id="pm-gov">—</b></div>
@@ -650,6 +651,7 @@ function renderStudentsTable(list){
       <td>${s.section||"—"}</td>
       <td>${s.totalScore||"—"}</td>
       <td>${s.chemistryScore||"—"}</td>
+      <td>${s.physicsScore||"—"}</td>
       <td>${s.college||"—"}</td>
       <td>${s.university||"—"}</td>
       <td><span class="status-pill ${statusClass(s.status)}">${s.status||"جديد"}</span></td>
@@ -701,6 +703,7 @@ window.openProfile = function(id){
   document.getElementById("pm-section").textContent = s.section || "—";
   document.getElementById("pm-total").textContent = s.totalScore || "—";
   document.getElementById("pm-chem").textContent = s.chemistryScore || "—";
+  document.getElementById("pm-phys").textContent = s.physicsScore || "—";
   document.getElementById("pm-college").textContent = s.college || "—";
   document.getElementById("pm-university").textContent = s.university || "—";
   document.getElementById("pm-gov").textContent = s.governorate || "—";
@@ -839,6 +842,7 @@ document.getElementById("export-btn").addEventListener("click", ()=>{
     "الشعبة": s.section||"",
     "المجموع": s.totalScore||"",
     "درجة الكيمياء": s.chemistryScore||"",
+    "درجة الفيزياء": s.physicsScore||"",
     "الكلية": s.college||"",
     "الجامعة": s.university||"",
     "المحافظة": s.governorate||"",
